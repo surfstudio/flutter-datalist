@@ -65,7 +65,9 @@ void main() {
       totalCount: 10,
     );
 
-    list3..merge(list2)..merge(list1);
+    list3
+      ..merge(list2)
+      ..merge(list1);
     expect(list3, equals(list4));
   });
 
@@ -95,7 +97,9 @@ void main() {
       totalCount: 10,
     );
 
-    list3..merge(list2)..merge(list1);
+    list3
+      ..merge(list2)
+      ..merge(list1);
     expect(list3, equals(list4));
   });
 
