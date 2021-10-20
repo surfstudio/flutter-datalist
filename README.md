@@ -9,7 +9,7 @@
 
 This package made by [Surf](https://surf.ru).
 
-## Usage
+## Description
 
 ### Data list limit-offset
 
@@ -47,6 +47,8 @@ dependencies:
 ```
 
 You can use both `stable` and `dev` versions of the package listed above in the badges bar.
+
+## Example
 
 ## Changelog
 
