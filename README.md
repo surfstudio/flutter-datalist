@@ -50,6 +50,90 @@ You can use both `stable` and `dev` versions of the package listed above in the 
 
 ## Example
 
+Example with OffsetDataList:
+```dart
+const element0 = Element(0);
+const element1 = Element(1);
+const element2 = Element(2);
+const element3 = Element(3);
+const element4 = Element(4);
+const element5 = Element(5);
+const element6 = Element(6);
+const element7 = Element(7);
+const element8 = Element(8);
+const element9 = Element(9);
+
+final list1 = OffsetDataList(
+  data: [element1, element2, element3, element4, element5],
+  limit: 5,
+  offset: 4,
+  totalCount: 30,
+);
+
+final list2 = OffsetDataList(
+  data: [element0, element1, element2, element3, element4],
+  limit: 5,
+  offset: 9,
+  totalCount: 30,
+);
+
+final list3 = OffsetDataList(
+  data: [element5, element6, element7, element8, element9],
+  limit: 5,
+  offset: 14,
+  totalCount: 30,
+);
+
+list1
+  ..mergeWithPredicate(list2, (element) => element.id)
+  ..mergeWithPredicate(list3, (element) => element.id);
+
+final list4 = OffsetDataList(
+  data: [
+    element1,
+    element2,
+    element3,
+    element4,
+    element5,
+    element0,
+    element6,
+    element7,
+    element8,
+    element9,
+  ],
+  limit: 15,
+  offset: 4,
+  totalCount: 30,
+);
+
+expect(list1, equals(list4)); // true
+```
+Example with PageCountDataList:
+```dart
+final list1 = PageCountDataList<int>(
+  data: [1, 2, 3, 4, 5],
+  startPage: 0,
+  numPages: 5,
+  pageSize: 1,
+);
+final list2 = PageCountDataList<int>(
+  data: [6, 7, 8, 9, 10],
+  startPage: 1,
+  numPages: 5,
+  pageSize: 1,
+);
+final list3 = PageCountDataList<int>(
+  data: [1, 6, 7, 8, 9, 10],
+  startPage: 0,
+  pageSize: 1,
+  numPages: 6,
+);
+
+list1.merge(list2);
+
+expect(list1, equals(list3)); // true
+```
+
 ## Changelog
 
 All notable changes to this project will be documented in [this file](./CHANGELOG.md).
